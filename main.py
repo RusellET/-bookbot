@@ -36,7 +36,6 @@ def sort_dict(dictionary):
 def create_letter_count(book):
     book_lower = book.lower()
     letter_count = {}
-    junk = []
     for letter in book_lower:
         if not letter.isalpha():
             pass
