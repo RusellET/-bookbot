@@ -1,11 +1,11 @@
 # this is my attempt at creating code that fulfills the assignment with some help from chatGPT
-# and the answer key. I should redo this and define more functions with individual functions
+# and the answer key. I should redo this and define more functions with individual purposes
 # instead of having a ton of stuff bundled into like 2 functions
 # also I should find a more eloquent way to create a dictionary instead of brute forcing it.
 def main():
     filename = "Frankenstein"
     word_count = count_words(filename)
-    letter_count = read_book(filename)
+    letter_count = create_letter_count(filename)
     letter_count_sorted = sort_dict(letter_count)
     print(f"--- Begin report of {filename} ---")
     print(f"{word_count} words found in the document")
@@ -27,11 +27,9 @@ def count_words(filename):
 def sort_dict(dictionary):
     return dict(sorted(dictionary.items(), key=lambda x: x[1], reverse = True))
 
-def read_book(filename):
+def create_letter_count(filename):
     with open(f"books/{filename}.txt") as f:
         file_contents = f.read()
-        split_book = file_contents.split()
-        num_words = len(split_book)
         file_lower = file_contents.lower()
         letter_count = {'a': 0,
                         'b': 0,
